@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// Force HTTP for local development
-const BACKEND_URL = 'http://localhost:8000';
+// Use environment variable or default to production backend for deployed site
+const BACKEND_URL = process.env.REACT_APP_API_URL || 'https://job-tracker-app-nuue.onrender.com';
 
 // Create axios instance with base configuration
 const api = axios.create({

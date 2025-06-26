@@ -189,6 +189,7 @@ CORS_ALLOWED_ORIGINS = [
     "https://127.0.0.1:3000",
     "http://localhost:3001",  # React dev server on port 3001
     "http://127.0.0.1:3001",
+    "https://jobtracker-application.netlify.app",  # Netlify deployed frontend
 ]
 
 # Add your frontend domain when deployed
