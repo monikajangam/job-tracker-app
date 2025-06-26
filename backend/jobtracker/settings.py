@@ -33,6 +33,7 @@ ALLOWED_HOSTS = [
     '0.0.0.0',
     '.render.com',  # Allow all render.com subdomains
     '.netlify.app',  # Allow all netlify.app subdomains
+    'job-tracker-app-nuue.onrender.com',  # <-- add this line for safety
 ]
 
 # Add your specific domains here when you have them
