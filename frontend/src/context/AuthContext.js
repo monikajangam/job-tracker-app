@@ -51,18 +51,18 @@ export const AuthProvider = ({ children }) => {
   // Login function
   const login = async (username, password) => {
     try {
-      const response = await axios.post(`${BACKEND_URL}/api-token-auth/`, {
-        username,
-        password
-      });
+      // const response = await axios.post(`${BACKEND_URL}/api-token-auth/`, {
+      //   username,
+      //   password
+      // });
       
-      const { token } = response.data;
+      // const { token } = response.data;
       
       // Store token in localStorage
-      localStorage.setItem('token', token);
+      // localStorage.setItem('token', token);
       
       // Set default authorization header
-      axios.defaults.headers.common['Authorization'] = `Token ${token}`;
+      // axios.defaults.headers.common['Authorization'] = `Token ${token}`;
       
       // Get user data
       const userResponse = await axios.get(`${BACKEND_URL}/api-auth/user/`);
@@ -81,7 +81,7 @@ export const AuthProvider = ({ children }) => {
   // Register function
   const register = async (userData) => {
     try {
-      const response = await axios.post(`${BACKEND_URL}/api-auth/registration/`, userData);
+      // const response = await axios.post(`${BACKEND_URL}/api-auth/registration/`, userData);
       
       // Auto-login after successful registration
       const loginResult = await login(userData.username, userData.password1);
