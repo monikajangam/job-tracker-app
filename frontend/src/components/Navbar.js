@@ -14,8 +14,7 @@ import {
 import {
   Work as WorkIcon,
   Event as EventIcon,
-  Dashboard as DashboardIcon,
-  AccountCircle as AccountCircleIcon
+  Dashboard as DashboardIcon
 } from '@mui/icons-material';
 import { useAuth } from '../context/AuthContext';
 
