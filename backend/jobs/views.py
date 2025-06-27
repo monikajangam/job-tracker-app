@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from django.db.models import Count, Q
 from django.utils import timezone
 from datetime import datetime, timedelta
+from django.http import HttpResponse
 
 from .models import JobApplication, Interview, Note
 from .serializers import (
@@ -163,3 +164,31 @@ class NoteViewSet(viewsets.ModelViewSet):
         if self.action in ['create', 'update', 'partial_update']:
             return NoteCreateSerializer
         return NoteSerializer
+
+def welcome(request):
+    return HttpResponse('''
+    <html>
+    <head>
+        <title>Welcome to Job Tracker</title>
+        <style>
+            body { font-family: 'Poppins', Arial, sans-serif; background: linear-gradient(135deg, #F6F7FB 60%, #A78BFA 100%); margin: 0; padding: 0; }
+            .container { max-width: 500px; margin: 80px auto; background: #fff; border-radius: 20px; box-shadow: 0 8px 32px 0 rgba(124,58,237,0.10); padding: 40px; text-align: center; }
+            h1 { color: #7C3AED; font-size: 2.5rem; margin-bottom: 16px; }
+            .tabs { display: flex; justify-content: center; gap: 20px; margin: 32px 0 0 0; }
+            .tab { background: linear-gradient(90deg, #7C3AED 60%, #A78BFA 100%); color: #fff; padding: 12px 32px; border-radius: 16px; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: background 0.2s; }
+            .tab:hover { background: linear-gradient(90deg, #A78BFA 60%, #7C3AED 100%); }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Welcome to Job Tracker</h1>
+            <p style="color: #555; font-size: 1.1rem;">Track your job applications, interviews, and more with ease.</p>
+            <div class="tabs">
+                <a class="tab" href="/admin/">Admin Login</a>
+                <a class="tab" href="https://jobtracker-application.netlify.app/login">User Login</a>
+                <a class="tab" href="https://jobtracker-application.netlify.app/register">Register</a>
+            </div>
+        </div>
+    </body>
+    </html>
+    ''')

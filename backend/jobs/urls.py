@@ -1,6 +1,6 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import JobApplicationViewSet, InterviewViewSet, NoteViewSet
+from .views import JobApplicationViewSet, InterviewViewSet, NoteViewSet, welcome
 
 # Create a router and register our viewsets with it
 router = DefaultRouter()
@@ -10,5 +10,6 @@ router.register(r'notes', NoteViewSet, basename='note')
 
 # The API URLs are now determined automatically by the router
 urlpatterns = [
+    path('', welcome, name='welcome'),
     path('api/', include(router.urls)),
 ] 
