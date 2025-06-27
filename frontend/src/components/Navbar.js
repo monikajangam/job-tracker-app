@@ -38,55 +38,57 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="static">
-      <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+    <AppBar position="static" elevation={0} sx={{
+      background: 'linear-gradient(90deg, #7C3AED 60%, #A78BFA 100%)',
+      boxShadow: '0 4px 16px 0 rgba(124,58,237,0.10)',
+      borderRadius: 0,
+    }}>
+      <Toolbar sx={{ minHeight: 72 }}>
+        <Typography variant="h5" component="div" sx={{ flexGrow: 1, fontWeight: 700, letterSpacing: 1 }}>
+          <Link to="/" style={{ textDecoration: 'none', color: '#fff' }}>
             Job Tracker
           </Link>
         </Typography>
-        
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
           <Button
             color="inherit"
             component={Link}
             to="/"
             startIcon={<DashboardIcon />}
+            sx={{ color: '#fff', fontWeight: 600, borderRadius: 3, px: 2 }}
           >
             Dashboard
           </Button>
-          
           <Button
             color="inherit"
             component={Link}
             to="/applications"
             startIcon={<WorkIcon />}
+            sx={{ color: '#fff', fontWeight: 600, borderRadius: 3, px: 2 }}
           >
             Applications
           </Button>
-          
           <Button
             color="inherit"
             component={Link}
             to="/interviews"
             startIcon={<EventIcon />}
+            sx={{ color: '#fff', fontWeight: 600, borderRadius: 3, px: 2 }}
           >
             Interviews
           </Button>
-          
           <IconButton
             size="large"
             aria-label="account of current user"
             aria-controls="menu-appbar"
             aria-haspopup="true"
             onClick={handleMenu}
-            color="inherit"
+            sx={{ ml: 1 }}
           >
-            <Avatar sx={{ width: 32, height: 32, bgcolor: 'secondary.main' }}>
+            <Avatar sx={{ width: 36, height: 36, bgcolor: 'secondary.main', fontWeight: 700, fontSize: 20 }}>
               {user?.username?.charAt(0).toUpperCase() || 'U'}
             </Avatar>
           </IconButton>
-          
           <Menu
             id="menu-appbar"
             anchorEl={anchorEl}
@@ -107,7 +109,7 @@ const Navbar = () => {
                 Welcome, {user?.username || 'User'}
               </Typography>
             </MenuItem>
-            <MenuItem onClick={handleLogout}>
+            <MenuItem onClick={handleLogout} sx={{ color: 'primary.main', fontWeight: 600 }}>
               Logout
             </MenuItem>
           </Menu>
